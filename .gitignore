@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+DS_env/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Dataset (Do not upload 112k images or large zips)
+data/raw/*.png
+data/*.zip
+data/*.tar.gz
+
+# Model Checkpoints & Large Arrays
+outputs/checkpoints/*.pth
+outputs/checkpoints/*.pt
+outputs/gradcam_maps/*.npy
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
