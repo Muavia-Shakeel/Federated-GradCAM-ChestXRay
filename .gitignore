@@ -22,6 +22,9 @@ outputs/checkpoints/*.pth
 outputs/checkpoints/*.pt
 outputs/gradcam_maps/*.npy
 
+# Large log files
+logs/*.log
+
 # IDE / OS
 .vscode/
 .idea/
