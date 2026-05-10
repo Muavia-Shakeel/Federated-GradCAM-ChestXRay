@@ -11,8 +11,9 @@ DS_env/
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Dataset (Do not upload 112k images or large zips)
-data/raw/*.png
+# Dataset (Do not upload 112k images, CSVs, or large zips)
+data/raw/
+data/*.csv
 data/*.zip
 data/*.tar.gz
 

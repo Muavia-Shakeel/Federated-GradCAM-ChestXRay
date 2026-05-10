@@ -20,13 +20,18 @@ def dirichlet_partition(
     """
     rng = np.random.default_rng(SEED)
 
-    # Assign each sample a primary label index
+    # Assign primary label = first positive class.
+    # All-zero rows (No Finding) → bin index 14 (one beyond PATHOLOGY_LABELS).
+    # np.argmax was wrong: returns 0 for all-zero rows, misclassifying healthy
+    # images as Atelectasis and skewing every client's distribution.
     label_matrix = df[PATHOLOGY_LABELS].values  # (N, 14)
-    primary = np.argmax(label_matrix, axis=1)   # picks first max (0 if no disease)
+    no_finding_mask = label_matrix.sum(axis=1) == 0
+    primary = label_matrix.argmax(axis=1)
+    primary[no_finding_mask] = len(PATHOLOGY_LABELS)  # 14 = "No Finding" bin
 
     client_indices = [[] for _ in range(num_clients)]
 
-    for cls in range(len(PATHOLOGY_LABELS)):
+    for cls in range(len(PATHOLOGY_LABELS) + 1):  # +1 to include No Finding bin
         cls_idx = np.where(primary == cls)[0]
         if len(cls_idx) == 0:
             continue

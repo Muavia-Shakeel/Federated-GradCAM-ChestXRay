@@ -15,8 +15,12 @@ def get_transforms(split: str = "train") -> A.Compose:
         return A.Compose([
             A.Resize(IMG_SIZE, IMG_SIZE),
             A.HorizontalFlip(p=0.5),
-            A.RandomBrightnessContrast(p=0.3),
-            A.ShiftScaleRotate(shift_limit=0.05, scale_limit=0.1, rotate_limit=10, p=0.3),
+            A.RandomBrightnessContrast(brightness_limit=0.2, contrast_limit=0.2, p=0.4),
+            A.Affine(translate_percent=0.05, scale=(0.9, 1.1), rotate=(-10, 10), p=0.3),
+            A.GaussNoise(p=0.3),
+            A.CLAHE(clip_limit=2.0, tile_grid_size=(8, 8), p=0.3),
+            A.CoarseDropout(num_holes_range=(1, 8), hole_height_range=(8, 16),
+                            hole_width_range=(8, 16), p=0.2),
             A.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
             ToTensorV2(),
         ])
@@ -55,7 +59,6 @@ def build_client_loaders(
     """
     Returns list of dicts with 'train' and 'val' DataLoaders per client.
     """
-    rng = np.random.default_rng(SEED)
     client_loaders = []
 
     for df in partition_dfs:

@@ -1,0 +1,156 @@
+{
+  "hamming_score": 0.8262512104377963,
+  "exact_match_accuracy": 0.2518729932215483,
+  "accuracy": 0.8262512104377963,
+  "f1_macro": 0.24795230634489937,
+  "f1_micro": 0.2799968320177407,
+  "precision_macro": 0.16204312788213998,
+  "recall_macro": 0.6501444847245947,
+  "auc_roc_macro": 0.8209580289936232,
+  "per_class": {
+    "Atelectasis": {
+      "auc": 0.7918046157133699,
+      "f1": 0.35091640590075995,
+      "precision": 0.23349196906603212,
+      "recall": 0.7059352517985612,
+      "support": 1112
+    },
+    "Cardiomegaly": {
+      "auc": 0.8918859790528653,
+      "f1": 0.2328042328042328,
+      "precision": 0.13914265635980325,
+      "recall": 0.7122302158273381,
+      "support": 278
+    },
+    "Effusion": {
+      "auc": 0.8695480052072437,
+      "f1": 0.49598796389167504,
+      "precision": 0.37504740235115663,
+      "recall": 0.7320503330866025,
+      "support": 1351
+    },
+    "Infiltration": {
+      "auc": 0.7061720374156975,
+      "f1": 0.40453238626754606,
+      "precision": 0.3058823529411765,
+      "recall": 0.5971043434847728,
+      "support": 2003
+    },
+    "Mass": {
+      "auc": 0.8403758786369762,
+      "f1": 0.2987111448066717,
+      "precision": 0.1912621359223301,
+      "recall": 0.6816608996539792,
+      "support": 578
+    },
+    "Nodule": {
+      "auc": 0.7600815273345002,
+      "f1": 0.22243776268994503,
+      "precision": 0.13887767460637868,
+      "recall": 0.5584415584415584,
+      "support": 616
+    },
+    "Pneumonia": {
+      "auc": 0.7332744949512499,
+      "f1": 0.06323185011709602,
+      "precision": 0.03450479233226837,
+      "recall": 0.3776223776223776,
+      "support": 143
+    },
+    "Pneumothorax": {
+      "auc": 0.8847500817764518,
+      "f1": 0.34171322160148976,
+      "precision": 0.22515337423312884,
+      "recall": 0.7084942084942085,
+      "support": 518
+    },
+    "Consolidation": {
+      "auc": 0.7952269967689489,
+      "f1": 0.1558572146807441,
+      "precision": 0.08698092031425365,
+      "recall": 0.748792270531401,
+      "support": 414
+    },
+    "Edema": {
+      "auc": 0.8846616694150325,
+      "f1": 0.14948453608247422,
+      "precision": 0.0826603325415677,
+      "recall": 0.7802690582959642,
+      "support": 223
+    },
+    "Emphysema": {
+      "auc": 0.9184340442338074,
+      "f1": 0.2980189491817399,
+      "precision": 0.18783930510314875,
+      "recall": 0.7208333333333333,
+      "support": 240
+    },
+    "Fibrosis": {
+      "auc": 0.8253758377105597,
+      "f1": 0.09823911028730306,
+      "precision": 0.05331991951710262,
+      "recall": 0.6235294117647059,
+      "support": 170
+    },
+    "Pleural_Thickening": {
+      "auc": 0.800113615497613,
+      "f1": 0.16296893908834206,
+      "precision": 0.0935618341824919,
+      "recall": 0.63125,
+      "support": 320
+    },
+    "Hernia": {
+      "auc": 0.7917076221964079,
+      "f1": 0.19642857142857142,
+      "precision": 0.12087912087912088,
+      "recall": 0.5238095238095238,
+      "support": 21
+    }
+  },
+  "faithfulness_score": 0.003863,
+  "aopc_score": -0.103326,
+  "insertion_auc": 0.323506,
+  "deletion_auc": 0.357386,
+  "strategy_comparison": {
+    "weighted": {
+      "faithfulness": -0.027889,
+      "aopc": -0.09374,
+      "pearson_r": -0.148,
+      "spearman_r": -0.1941,
+      "ssim": -0.123,
+      "mse": 0.130117
+    },
+    "uniform": {
+      "faithfulness": -0.018022,
+      "aopc": -0.096404,
+      "pearson_r": -0.1396,
+      "spearman_r": -0.1918,
+      "ssim": -0.1208,
+      "mse": 0.123257
+    },
+    "max_pool": {
+      "faithfulness": -0.014516,
+      "aopc": -0.095865,
+      "pearson_r": -0.0632,
+      "spearman_r": -0.1357,
+      "ssim": -0.0482,
+      "mse": 0.108166
+    }
+  },
+  "faithfulness_per_class": {
+    "Atelectasis": -0.029959,
+    "Effusion": 0.087141,
+    "Infiltration": -0.045592
+  },
+  "xai_eval_config": {
+    "top_k_pct": 0.2,
+    "masking_baseline": "imagenet_mean",
+    "faithfulness_classes": [
+      "Atelectasis",
+      "Effusion",
+      "Infiltration"
+    ],
+    "primary_class": "Infiltration",
+    "batch_size": 96
+  }
+}

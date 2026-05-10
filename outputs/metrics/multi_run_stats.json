@@ -1,0 +1,100 @@
+{
+  "config": {
+    "seeds": [
+      123,
+      456
+    ],
+    "mode": "non_iid",
+    "algorithm": "fedprox",
+    "rounds": 20,
+    "clients": 5
+  },
+  "per_run": [
+    {
+      "auc_roc_macro": 0.8138385319771818,
+      "f1_macro": 0.09676666919656632,
+      "f1_micro": 0.14937486290853258,
+      "accuracy": 0.9505886550124866,
+      "precision_macro": 0.324377818979013,
+      "recall_macro": 0.06136360274855744,
+      "seed": 123
+    },
+    {
+      "auc_roc_macro": 0.8138623462324519,
+      "f1_macro": 0.10304429213531881,
+      "f1_micro": 0.15925008081025752,
+      "accuracy": 0.9502892309260487,
+      "precision_macro": 0.3324789253661944,
+      "recall_macro": 0.06558895158566164,
+      "seed": 456
+    }
+  ],
+  "statistics": {
+    "auc_roc_macro": {
+      "mean": 0.8139,
+      "std": 0.0,
+      "min": 0.8138,
+      "max": 0.8139,
+      "values": [
+        0.8138,
+        0.8139
+      ],
+      "n_runs": 2
+    },
+    "f1_macro": {
+      "mean": 0.0999,
+      "std": 0.0031,
+      "min": 0.0968,
+      "max": 0.103,
+      "values": [
+        0.0968,
+        0.103
+      ],
+      "n_runs": 2
+    },
+    "f1_micro": {
+      "mean": 0.1543,
+      "std": 0.0049,
+      "min": 0.1494,
+      "max": 0.1593,
+      "values": [
+        0.1494,
+        0.1593
+      ],
+      "n_runs": 2
+    },
+    "accuracy": {
+      "mean": 0.9504,
+      "std": 0.0001,
+      "min": 0.9503,
+      "max": 0.9506,
+      "values": [
+        0.9506,
+        0.9503
+      ],
+      "n_runs": 2
+    },
+    "precision_macro": {
+      "mean": 0.3284,
+      "std": 0.0041,
+      "min": 0.3244,
+      "max": 0.3325,
+      "values": [
+        0.3244,
+        0.3325
+      ],
+      "n_runs": 2
+    },
+    "recall_macro": {
+      "mean": 0.0635,
+      "std": 0.0021,
+      "min": 0.0614,
+      "max": 0.0656,
+      "values": [
+        0.0614,
+        0.0656
+      ],
+      "n_runs": 2
+    }
+  }
+}

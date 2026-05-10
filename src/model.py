@@ -17,8 +17,13 @@ def build_model(num_classes: int = NUM_CLASSES) -> nn.Module:
 
 
 def get_gradcam_target_layer(model: nn.Module):
-    # EfficientNet-B0: last conv block before global pool
-    return model.blocks[-1]
+    # EfficientNet-B0: conv_pwl is the last pointwise projection conv in the
+    # final MBConv block — best GradCAM signal before global average pooling.
+    # Targeting the whole block gives coarser, weaker gradients.
+    last_block = model.blocks[-1][-1]
+    if hasattr(last_block, "conv_pwl"):
+        return last_block.conv_pwl
+    return model.blocks[-1][-1]  # fallback if arch differs
 
 
 def copy_model(model: nn.Module) -> nn.Module:

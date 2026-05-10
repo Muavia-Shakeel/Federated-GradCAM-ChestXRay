@@ -1,5 +1,7 @@
 """
 FedAvg: dataset-size-weighted averaging of client model parameters.
+FedProx: same aggregation but clients train with proximal regularization
+         (Li et al., 2020 — https://arxiv.org/abs/1812.06127).
 """
 import copy
 import torch
@@ -24,6 +26,11 @@ def fedavg(
 
     global_model.load_state_dict(global_state)
     return global_model
+
+
+# FedProx aggregation is identical to FedAvg — the proximal term is enforced
+# during CLIENT-SIDE training (see train_client.train_one_round_fedprox).
+fedprox_aggregate = fedavg
 
 
 def broadcast_weights(global_model: nn.Module, client_models: list[nn.Module]):
